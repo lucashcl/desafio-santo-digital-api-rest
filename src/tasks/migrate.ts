@@ -4,6 +4,7 @@ import { db } from "../data/drizzle/db"
 import { productsTable } from "../data/drizzle/tables/products.table"
 import { migrate } from "drizzle-orm/bun-sqlite/migrator"
 import { usersTable } from "../data/drizzle/tables/users.table"
+import bcrypt from "bcrypt"
 
 const productsCsv = await fs.readFile("src/data/AdventureWorks_Products.csv", "utf-8")
 
@@ -43,6 +44,6 @@ await db.insert(productsTable).values(products.map(product => ({
 
 await db.insert(usersTable).values({
    username: "admin",
-   password: "password",
+   password: bcrypt.hashSync("password", 10),
    role: "admin"
 })
