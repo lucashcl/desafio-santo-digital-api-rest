@@ -36,7 +36,6 @@ export const productsRoute = new Elysia({ prefix: "/products" })
    })
    .guard({
       beforeHandle: async ({ user, error }) => {
-         console.log(user)
          if (user.role !== "admin") {
             return error(403, "Forbidden")
          }
