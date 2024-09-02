@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, numeric, real } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
 export const usersTable = sqliteTable("users", {
    key: integer('key').primaryKey({ autoIncrement: true }),
