@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+data.db
+src/data/drizzle/migrations
 
 # debug
 npm-debug.log*
